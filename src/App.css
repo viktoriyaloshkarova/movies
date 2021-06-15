@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+    background-color: #0B0A0F;
+    color: #FFFFFF;
+}
+
+.movie-app > .vertical {
+    overflow-y: auto;
+    flex-wrap: nowrap;
+}

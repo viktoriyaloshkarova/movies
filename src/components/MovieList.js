@@ -10,7 +10,7 @@ const MovieList = (props) => {
             </div>
         ))}
         </>
-    );
-};
+    )
+}
 
 export default MovieList;
