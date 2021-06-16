@@ -5,6 +5,7 @@ import "./App.css"
 import Header from './components/Header'
 import Searchbar from './components/Searchbar';
 import Pagination from './components/Pagination';
+import Popup from './components/Popup';
 
 
 export const App = () => {
