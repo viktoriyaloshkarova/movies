@@ -1,10 +1,16 @@
 body {
-    text-align: center;
     background-color: #0B0A0F;
     color: #FFFFFF;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .movie-app > .vertical {
+    text-align: center;
     overflow-y: auto;
     flex-wrap: nowrap;
+}
+
+.poster {
+    margin-bottom: 100px;
 }

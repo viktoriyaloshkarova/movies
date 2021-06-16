@@ -3,6 +3,7 @@ import MovieList from './components/MovieList';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
 import Header from './components/Header'
+import Searchbar from './components/Searchbar';
 
 
 export const App = () => {
@@ -10,23 +11,26 @@ export const App = () => {
 
     const [search, setSearch] = useState('');
 
-    const movieRequest = async () => {
-        const url = 'http://www.omdbapi.com/?s=star wars&apikey=bf2f4a04'
+    const movieRequest = async (search) => {
+        const url = `http://www.omdbapi.com/?s=${search}&apikey=bf2f4a04`;
         const response = await fetch(url);
         const responseJson = await response.json();
 
-        console.log(responseJson);
-        setMovies(responseJson.Search);
+        if(responseJson.Search){
+            setMovies(responseJson.Search);
+        }
+        
     };
 
     useEffect(() => {
-        movieRequest();
-    }, []);
+        movieRequest(search);
+    }, [search]);
 
     return (
-        <div className = 'container-fluid movie-app'>
-            <div className = 'row'>
+        <div className = 'movie-app'>
+            <div className = 'row d-flex mt-5 mb-5'>
                 <Header heading = 'Movies'/>
+                <Searchbar search = {search} setSearch = {setSearch}/>
             </div>
             <div className = 'vertical'>
                 <MovieList movies={movies} />
