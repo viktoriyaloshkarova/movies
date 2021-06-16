@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import MovieList from './components/MovieList';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
+import Header from './components/Header'
 
 
 export const App = () => {
     const [movies, setMovies] = useState([]);
+
+    const [search, setSearch] = useState('');
 
     const movieRequest = async () => {
         const url = 'http://www.omdbapi.com/?s=star wars&apikey=bf2f4a04'
@@ -22,6 +25,9 @@ export const App = () => {
 
     return (
         <div className = 'container-fluid movie-app'>
+            <div className = 'row'>
+                <Header heading = 'Movies'/>
+            </div>
             <div className = 'vertical'>
                 <MovieList movies={movies} />
             </div> 
