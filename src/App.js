@@ -11,7 +11,11 @@ import Popup from './components/Popup';
 export const App = () => {
     const [movies, setMovies] = useState([]);
 
+    const [id, setId] = useState('');
+
     const [search, setSearch] = useState('');
+
+    const [idsearch, setidSearch] = useState('');
 
     const [currentPage, setCurrectPage] = useState(1);
 
@@ -19,6 +23,7 @@ export const App = () => {
 
     const paginate = (pageNumber) => setCurrectPage(pageNumber);
 
+    //initial fetch request to get all possible movies from search
     const movieRequest = async (search) => {
         const url = `http://www.omdbapi.com/?s=${search}&apikey=bf2f4a04`;
         const response = await fetch(url);
@@ -35,6 +40,24 @@ export const App = () => {
         movieRequest(search);
     }, [search]);
 
+    //second request to get all details from a movie 
+    const idRequest = async (idsearch) => {
+        const idurl = `http://www.omdbapi.com/?i=${idsearch}&apikey=bf2f4a04`;
+        const response = await fetch(idurl);
+        const responseJson = await response.json();
+
+        if(responseJson.Search){
+            setId(responseJson.Search);
+
+        }
+        
+    };
+
+    useEffect(() => {
+        idRequest(idsearch);
+    }, [idsearch]);
+
+
 
     const lastMovieIndex = currentPage * moviesPerPage;
     const firstMovieIndex = lastMovieIndex - moviesPerPage;
@@ -47,11 +70,12 @@ export const App = () => {
                 <Searchbar search = {search} setSearch = {setSearch}/>
             </div>
             <div className = 'vertical'>
-                <MovieList movies={currentMovies} />
+                <MovieList movies={currentMovies} setId = {setId} />
                 <Pagination 
                     moviesPerPage = {moviesPerPage} 
                     totalMovies = {movies.length} 
                     paginate = {paginate}/>
+                
             </div> 
         </div>
     );
