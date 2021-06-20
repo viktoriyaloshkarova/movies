@@ -1,4 +1,5 @@
 import React from 'react';
+import './Popup.css'
 
 const Pagination = ({moviesPerPage, totalMovies, paginate}) => {
     const pageNumbers = [];

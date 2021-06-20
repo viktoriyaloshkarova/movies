@@ -18,10 +18,10 @@ const Movie = (props) => {
                 {props.movie.Title}</button>
                 <br></br>
             </main>
-            <Popup trigger = {buttonPopup} setTrigger = {setButtonPopup}>
-                <h2>Movie info: </h2>
+            <Popup style = {{fontWeight: 'bold'}} trigger = {buttonPopup} setTrigger = {setButtonPopup}>
+                <h3>Movie info: </h3>
                 <br></br>
-                <p>{props.plot}</p>
+                <h5>{props.plot}</h5>
                 <p>Released: {props.released}</p>
                 <p>Runtime: {props.runtime}</p>
                 <p>Genre: {props.genre}</p>

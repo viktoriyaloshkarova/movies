@@ -80,6 +80,7 @@ export const App = () => {
             setPlot(responseJson.Plot)
         }
 
+
     };
 
     useEffect(() => {
