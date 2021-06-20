@@ -1,5 +1,5 @@
 .popup {
-    position: fixed;
+    position: center;
     top: 0;
     left: 0;
     margin-top: 10px;
@@ -13,11 +13,11 @@
 
 .popup-inner {
     position: relative;
-    padding-top: 45px;
+    padding-top: 20px;
     padding-bottom: 10px;
     width: 100%;
     max-width: 640px;
-    background-color: #110f16;
+    background-color: #0B0A0F;
     text-decoration-color: #FFFFFF;
     color: #FFFFFF;
 }

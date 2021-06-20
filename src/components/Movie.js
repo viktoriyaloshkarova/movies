@@ -1,6 +1,7 @@
 import React from 'react';
 import Popup from './Popup';
 import { useState, useEffect } from 'react';
+import './Movie.css';
 
 const Movie = (props) => {
 
@@ -8,16 +9,23 @@ const Movie = (props) => {
     
     return (
     
-        <div className = 'movie'>
+        <div >
             <main>
-            <button onClick={
-                () => setButtonPopup(true)
+            <button className = 'button'
+                
+            onClick={ () => {setButtonPopup(true); props.setIdSearch(props.movie.imdbID)}
                 }>
-                {props.movie.imdbID}</button>
+                {props.movie.Title}</button>
+                <br></br>
             </main>
             <Popup trigger = {buttonPopup} setTrigger = {setButtonPopup}>
-                <h3>{props.movie.Title}</h3>
-                <p>Released: {props.id}</p>
+                <h2>Movie info: </h2>
+                <br></br>
+                <p>{props.plot}</p>
+                <p>Released: {props.released}</p>
+                <p>Runtime: {props.runtime}</p>
+                <p>Genre: {props.genre}</p>
+                <p>Director: {props.director}</p>
                </Popup>
             <div className = 'poster'>
             <img src = {props.movie.Poster} alt = 'movie'></img>
