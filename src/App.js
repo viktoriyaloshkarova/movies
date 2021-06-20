@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import MovieList from './components/MovieList';
+import MovieFetch from './components/MovieFetch';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
 import Header from './components/Header'
 import Searchbar from './components/Searchbar';
 import Pagination from './components/Pagination';
 import Popup from './components/Popup';
+import Movie from './components/Movie';
 
 
 export const App = () => {
+
+    const [buttonPopup, setButtonPopup] = useState(false);
+
     const [movies, setMovies] = useState([]);
 
     const [id, setId] = useState('');
 
     const [search, setSearch] = useState('');
 
-    const [idsearch, setidSearch] = useState('');
+    const [idsearch, setIdSearch] = useState('');
 
     const [currentPage, setCurrectPage] = useState(1);
 
@@ -39,6 +43,7 @@ export const App = () => {
     useEffect(() => {
         movieRequest(search);
     }, [search]);
+
 
     //second request to get all details from a movie 
     const idRequest = async (idsearch) => {
@@ -70,7 +75,31 @@ export const App = () => {
                 <Searchbar search = {search} setSearch = {setSearch}/>
             </div>
             <div className = 'vertical'>
-                <MovieList movies={currentMovies} setId = {setId} />
+                {//<MovieList movies={currentMovies} setIdSearch = {setIdSearch} setButtonPopup = {setButtonPopup}/>
+}
+                
+                <section className = 'movies'>
+                {movies.map(movie => (
+                <div>
+                    <div>
+                    <MovieFetch
+                    movie = {movie} 
+                    setIdSearch = {setIdSearch}
+                    />
+                    </div>
+
+                    <Movie 
+                    movie = {movie} 
+                    setIdSearch = {setIdSearch}
+                    id = {id}
+                    />
+                    
+                </div>
+            
+            ))}
+
+        </section>
+                
                 <Pagination 
                     moviesPerPage = {moviesPerPage} 
                     totalMovies = {movies.length} 
