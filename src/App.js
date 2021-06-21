@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"
 import Header from './components/Header'
@@ -92,24 +91,25 @@ export const App = () => {
     }, [idSearch]);
 
 
-
+    //pagination math
     const lastMovieIndex = currentPage * moviesPerPage;
     const firstMovieIndex = lastMovieIndex - moviesPerPage;
     const currentMovies = movies.slice(firstMovieIndex, lastMovieIndex);
 
     return (
+        //movie background
         <div style = {{backgroundImage: `url(${backgroung})`}}
         className = 'movie-app'>
             <div className = 'row d-flex mt-5 mb-5'>
                 <Header heading = 'Movies'/>
-                <Searchbar search = {search} setSearch = {setSearch}/>
-                
+                <Searchbar search = {search} setSearch = {setSearch}/> 
             </div>
+            
             <div className = 'vertical'>
-                
                 <section className = 'movies'>
+                {//call the movie function for each movie in the movies array
+                }   
                 {currentMovies.map(movie => (
-                
                     <div>
                     <Movie 
                     movie = {movie} 
@@ -120,12 +120,12 @@ export const App = () => {
                     plot = {plot}
                     idSearch = {idSearch}
                     setIdSearch = {setIdSearch}
-                    />
-                    
+                    /> 
                 </div>
             
             ))}
-
+            {//Load more button feature to load more movies per page
+            }
             <button className = 'btn btn-dark d-block'
                 onClick = {() => loadMore()}
             >Load More</button>

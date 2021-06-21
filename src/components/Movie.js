@@ -11,14 +11,17 @@ const Movie = (props) => {
     
         <div >
             <main>
+            {//When a user clicks the movie title, which is a button, the click will trigger the id search in app.js and the popup
+            }
             <button 
-                look='clear'
                 className = 'button'
                 onClick={ () => {setButtonPopup(true); 
                 props.setIdSearch(props.movie.imdbID)}}>
                 {props.movie.Title}</button>
                 <br></br>
             </main>
+            {//popup to view more movie info about each movie
+            }
             <Popup style = {{fontWeight: 'bold'}} trigger = {buttonPopup} setTrigger = {setButtonPopup}>
                 <h3>Movie info: </h3>
                 <br></br>
