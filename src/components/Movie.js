@@ -11,10 +11,10 @@ const Movie = (props) => {
     
         <div >
             <main>
-            <button className = 'button'
-                
-            onClick={ () => {setButtonPopup(true); props.setIdSearch(props.movie.imdbID)}
-                }>
+            <button 
+                className = 'button'
+                onClick={ () => {setButtonPopup(true); 
+                props.setIdSearch(props.movie.imdbID)}}>
                 {props.movie.Title}</button>
                 <br></br>
             </main>

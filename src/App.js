@@ -11,7 +11,6 @@ import Movie from './components/Movie';
 
 export const App = () => {
 
-
     const [movies, setMovies] = useState([]);
 
     const [released, setReleased] = useState('');
@@ -30,9 +29,13 @@ export const App = () => {
 
     const [currentPage, setCurrectPage] = useState(1);
 
-    const [moviesPerPage] = useState(10);
+    const [moviesPerPage, setMoviesPerPage] = useState(10);
 
     const paginate = (pageNumber) => setCurrectPage(pageNumber);
+
+    const loadMore = () => {
+        setMoviesPerPage(moviesPerPage + 5);
+    }
 
     //initial fetch request to get all possible movies from search
     const movieRequest = async (search) => {
@@ -120,6 +123,11 @@ export const App = () => {
                 </div>
             
             ))}
+
+            <button className = 'btn btn-dark d-block'
+                onClick = {() => loadMore()}
+            >Load More</button>
+            <br></br>
 
         </section>
                 

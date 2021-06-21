@@ -14,12 +14,13 @@ const Pagination = ({moviesPerPage, totalMovies, paginate}) => {
                     <a 
                     onClick = {() => paginate(number)}
                     href = '!#' 
-                    className = 'page-link'>
+                    className = 'btn btn-dark d-block'>
                         {number}
                     </a>
                 </li>
             ))}
             </ul>
+            
         </nav>
     )
 } 
