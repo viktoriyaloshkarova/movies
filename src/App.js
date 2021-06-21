@@ -30,7 +30,7 @@ export const App = () => {
 
     const [currentPage, setCurrectPage] = useState(1);
 
-    const [moviesPerPage, setMoviesPerPage] = useState(5);
+    const [moviesPerPage, setMoviesPerPage] = useState(10);
 
     const paginate = (pageNumber) => setCurrectPage(pageNumber);
 
