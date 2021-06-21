@@ -3,8 +3,10 @@ import './Header.css'
 
 const Header = (props) => {
     return (
-        <div className = 'col'>
-            <h1>{props.heading}</h1>
+        <div  className = 'col'>
+            <h1 
+            style = {{fontWeight: 'bold', fontSize: '50px'}} className = 'heading'
+            >{props.heading}</h1>
         </div>
     );
 };

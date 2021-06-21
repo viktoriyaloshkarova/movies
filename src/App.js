@@ -7,6 +7,7 @@ import Searchbar from './components/Searchbar';
 import Pagination from './components/Pagination';
 import Popup from './components/Popup';
 import Movie from './components/Movie';
+import backgroung from './film.jpg'
 
 
 export const App = () => {
@@ -29,7 +30,7 @@ export const App = () => {
 
     const [currentPage, setCurrectPage] = useState(1);
 
-    const [moviesPerPage, setMoviesPerPage] = useState(10);
+    const [moviesPerPage, setMoviesPerPage] = useState(5);
 
     const paginate = (pageNumber) => setCurrectPage(pageNumber);
 
@@ -97,7 +98,8 @@ export const App = () => {
     const currentMovies = movies.slice(firstMovieIndex, lastMovieIndex);
 
     return (
-        <div className = 'movie-app'>
+        <div style = {{backgroundImage: `url(${backgroung})`}}
+        className = 'movie-app'>
             <div className = 'row d-flex mt-5 mb-5'>
                 <Header heading = 'Movies'/>
                 <Searchbar search = {search} setSearch = {setSearch}/>

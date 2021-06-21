@@ -12,6 +12,7 @@ const Movie = (props) => {
         <div >
             <main>
             <button 
+                look='clear'
                 className = 'button'
                 onClick={ () => {setButtonPopup(true); 
                 props.setIdSearch(props.movie.imdbID)}}>
