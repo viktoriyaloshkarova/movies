@@ -9,7 +9,8 @@
 - [x] "Load More" button for user to view more movies per page
 
 ## Walkthrough GIF
-<img src="http://g.recordit.co/xgdJXO5urJ.gif" width=250><br>
+![movie](https://user-images.githubusercontent.com/74466293/122699897-47c3e280-d218-11eb-9d75-3d8205f620b4.gif)
+<br>
 
 ## Challenges:
 
